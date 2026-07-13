@@ -11,4 +11,7 @@ dependencies = [
     "langchain-google-genai",
     "langchain_openrouter",
     "langchain_postgres",
+    "unstructured",
+    "unstructured[pdf]",
+    "unstructured_inference"
 ]
