@@ -3,12 +3,10 @@ from langchain_postgres import PGVector
 from dotenv import load_dotenv
 import json
 import os
-# from Actions import upload_documentsvector
 from prompt.prompts import simple_prompt, default_prompt
 
 load_dotenv()
 
-# config = {"configurable": {"session_id": "1"}}
 
 database = os.getenv("DATABASE_URL")
 

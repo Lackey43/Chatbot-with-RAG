@@ -1,0 +1,13 @@
+streamlit>=1.59.2
+langchain_community
+pypdf
+langchain-openai
+langchain-google-genai
+langchain_openrouter
+langchain_postgres
+unstructured
+unstructured-inference
+pdfminer.six
+pypandoc
+pytesseract
+pillow
