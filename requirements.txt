@@ -1,13 +1,12 @@
 streamlit>=1.59.2
 langchain_community
 pypdf
-langchain-openai
 langchain-google-genai
-langchain_openrouter
 langchain_postgres
 unstructured
-unstructured-inference
+unstructured_inference
+# Use headless version to avoid OpenGL issues on Streamlit Cloud
+opencv-python-headless
 pdfminer.six
 pypandoc
-pytesseract
 pillow

@@ -7,11 +7,12 @@ requires-python = ">=3.13"
 dependencies = [
     "langchain_community",
     "pypdf",
-    "langchain_openai",
+    "langchain-openai",
     "langchain-google-genai",
     "langchain_openrouter",
     "langchain_postgres",
     "unstructured",
     "unstructured[pdf]",
-    "unstructured_inference"
+    "unstructured_inference",
+    "streamlit>=1.59.2",
 ]
