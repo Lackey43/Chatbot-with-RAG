@@ -271,9 +271,11 @@ with st.expander("ℹ️ How this RAG Chatbot Works"):
     st.markdown("""
     **Smart Routing for Accurate Answers**
 
+    *Example:*  'What is the story of Bilbo Baggins'
+
     This chatbot uses intelligent routing to deliver better responses:
 
-    - **LOTR-related questions**: Retrieves the top 8 relevant chunks from your PGVector database, saves them as JSON, and generates grounded answers.
+    - **LOTR-related questions**: Retrieves the top 8 relevant chunks using vector stores from the Postgresql database, saves them as JSON, and generates grounded answers.
     - **General questions**: Responds directly with the default model (no retrieval).
 
     You get real-time streaming + full transparency in the debug panel.
