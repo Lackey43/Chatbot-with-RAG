@@ -10,3 +10,4 @@ opencv-python-headless
 pdfminer.six
 pypandoc
 pillow
+langchain-openai
