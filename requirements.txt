@@ -1,15 +1,6 @@
-# Use headless version to avoid OpenGL issues on Streamlit Cloud
-langchain-google-genai
-langchain-openai
 langchain_community
+langchain-openai
+langchain-google-genai
 langchain_openrouter
 langchain_postgres
-opencv-python-headless
-pdfminer.six
-pillow
-pypandoc
-pypdf
 streamlit>=1.59.2
-unstructured
-unstructured[pdf]
-unstructured_inference
