@@ -1,6 +1,15 @@
-langchain_community
+# Web server (replaces streamlit)
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-dotenv>=1.0.1
+
+# RAG / LLM stack
+langchain-core>=0.3.0
+langchain-community
 langchain-openai
 langchain-google-genai
-langchain_openrouter
-langchain_postgres
-streamlit>=1.59.2
+langchain-openrouter
+langchain-postgres
+psycopg[binary]
+pydantic>=2.0
+

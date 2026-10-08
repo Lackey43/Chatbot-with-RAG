@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="author" content="Claude Daigan" />
+    <meta
+      name="description"
+      content="Lord of the Rings RAG chat. Smart routing, PGVector retrieval, streamed answers."
+    />
+    <title>LOTR RAG Chat</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23d9a441' stroke-width='4'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="rail">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="3.5" />
+            <circle cx="16" cy="16" r="3.2" fill="currentColor" />
+          </svg>
+          <div class="brand-text">
+            <span class="brand-name">LOTR <em>RAG</em></span>
+            <span class="brand-sub">Grounded answers from the books</span>
+          </div>
+        </div>
+
+        <div class="rail-block">
+          <h3>How it works</h3>
+          <ol class="steps">
+            <li><span class="step-n">1</span><span>Route the question: Tolkien or general</span></li>
+            <li><span class="step-n">2</span><span>Retrieve the top 8 chunks from PGVector</span></li>
+            <li><span class="step-n">3</span><span>Stream an answer grounded in those chunks</span></li>
+          </ol>
+        </div>
+
+        <div class="rail-block">
+          <h3>Routes</h3>
+          <ul class="legend">
+            <li><span class="pill pill-rag">RAG</span><span>Answered from the knowledge base</span></li>
+            <li><span class="pill pill-direct">Direct</span><span>General questions, no retrieval</span></li>
+          </ul>
+        </div>
+
+        <div class="rail-foot">
+          <div class="server" id="serverStatus" title="">
+            <span class="dot" id="serverDot" data-state="unknown"></span>
+            <span class="server-text" id="serverText">Connecting to server...</span>
+          </div>
+          <button type="button" class="ghost-btn" id="clearBtn">Clear conversation</button>
+          <div class="colophon">
+            Built by <a href="https://lackey43.github.io/portfolio/">Claude Daigan</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="pane">
+        <header class="topbar">
+          <div class="topbar-title">
+            <span class="eyebrow">Retrieval-augmented chat</span>
+            <h1>Ask about Middle-earth</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="model-tag" id="modelTag" title="Model">model</span>
+            <button type="button" class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-sun">
+                <circle cx="12" cy="12" r="4.2" />
+                <path d="M12 2.6v3M12 18.4v3M2.6 12h3M18.4 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1" />
+              </svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-moon">
+                <path d="M20 14.5A8.2 8.2 0 0 1 9.6 4.1 8.4 8.4 0 1 0 20 14.5z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="thread" id="thread" aria-live="polite"></div>
+
+        <form class="composer" id="composer" autocomplete="off">
+          <div class="composer-box">
+            <textarea
+              id="input"
+              rows="1"
+              placeholder="Ask anything about Lord of the Rings, or a general question..."
+              aria-label="Your question"
+            ></textarea>
+            <button type="submit" class="send-btn" id="sendBtn" aria-label="Send">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 8 6 8z" /></svg>
+            </button>
+          </div>
+          <div class="composer-hint">
+            <span class="hint-text">Enter to send, Shift+Enter for a new line</span>
+            <button type="button" class="stop-btn" id="stopBtn" hidden>Stop</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

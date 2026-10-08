@@ -7,7 +7,12 @@ summary.md
 file.txt
 file.json
 retrieved_chunks.json
+output.json
 pyproject.toml.backup
 pyproject.toml
 main.py
 /Actions/
+
+# python bytecode
+__pycache__/
+*.pyc
